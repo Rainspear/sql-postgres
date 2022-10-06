@@ -4,6 +4,20 @@ url VARCHAR(200),
 user_id INTEGER REFERENCES users(id)
 ON DELETE SET DEFAULT
 );
+
+CREATE TABLE photos (
+id SERIAL PRIMARY KEY,
+url VARCHAR(200),
+user_id INTEGER REFERENCES users(id)
+ON DELETE SET NULL
+); // same as DEFAULT   
+
+CREATE TABLE photos (
+id SERIAL PRIMARY KEY,
+url VARCHAR(200),
+user_id INTEGER REFERENCES users(id)
+ON DELETE CASCADE 
+); // delete all the relative row on other tables have foreign keys with this table
  
 INSERT INTO photos (url, user_id)
 VALUES
@@ -24,4 +38,6 @@ VALUES
 ('logarix'),
 ('stephen'),
 ('johnson');
+
+
 
