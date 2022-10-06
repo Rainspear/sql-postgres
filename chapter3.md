@@ -10,15 +10,15 @@ id SERIAL PRIMARY KEY,
 url VARCHAR(200),
 user_id INTEGER REFERENCES users(id)
 ON DELETE SET NULL
-); // same as DEFAULT   
+);
 
 CREATE TABLE photos (
 id SERIAL PRIMARY KEY,
 url VARCHAR(200),
 user_id INTEGER REFERENCES users(id)
-ON DELETE CASCADE 
-); // delete all the relative row on other tables have foreign keys with this table
- 
+ON DELETE CASCADE
+);
+
 INSERT INTO photos (url, user_id)
 VALUES
 ('http:/one.jpg', 4),
@@ -32,12 +32,9 @@ VALUES
 CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR (50));
 
 INSERT INTO users (username)
-VALUES 
+VALUES
 ('monahan93'),
 ('pferrer'),
 ('logarix'),
 ('stephen'),
 ('johnson');
-
-
-
